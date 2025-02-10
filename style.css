@@ -1,0 +1,367 @@
+/* Base Styles */
+:root {
+  --primary-bg: black;
+  --primary-text: white;
+  --secondary-text: rgba(255, 255, 255, 0.7);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --modal-overlay: rgba(0, 0, 0, 0.6);
+  --card-bg: #242323;
+  --hover-bg: rgba(255, 255, 255, 0.145);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+label {
+  font-size: 1.5rem;
+}
+
+body {
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+  font-weight: 500;
+  word-wrap: break-word;
+  font-size: 18px;
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Navigation */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Search */
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search-bar {
+  background: transparent;
+  border: 1px solid var(--primary-text);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  color: var(--primary-text);
+  font-size: 1rem;
+  transition: box-shadow 0.2s;
+}
+
+.search-bar:focus {
+  outline: none;
+  box-shadow: 0 0 5px 2px var(--primary-text);
+}
+
+/* Hero Section */
+.hero {
+  margin-bottom: 10px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 4rem;
+  max-width: 600px;
+}
+
+.hero p {
+  color: var(--secondary-text);
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+/* Book Grid */
+.sections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  background-color: var(--primary-bg);
+}
+
+/* Book Cards */
+.book-card {
+  position: relative;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  color: var(--primary-text);
+}
+
+.book-card h3 {
+  height: 150px;
+  width: 80%;
+}
+
+.book-card p {
+  padding: 5px 0;
+}
+
+/* Buttons */
+.app-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--primary-text);
+  border-radius: 6px;
+  color: var(--primary-text);
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: background-color 0.2s;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.app-button:hover {
+  background-color: var(--hover-bg);
+}
+
+.submit-button {
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Status and Delete Buttons */
+.status-button {
+  background-color: transparent;
+  border: 1px solid var(--primary-text);
+  color: var(--primary-text);
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.status-button:hover {
+  background-color: var(--hover-bg);
+}
+
+.trash-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  color: var(--primary-text);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+/* Shapes */
+.circle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-bg);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.square {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-bg);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.triangle-up {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 40px solid var(--primary-bg);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--modal-overlay);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  display: block;
+  opacity: 1;
+}
+
+.modal-content {
+  text-align: center;
+  background-color: var(--primary-bg);
+  margin: 10vh auto;
+  padding: 30px;
+  border: 1px solid #ffffff5f;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  transform: scale(0.7);
+  transition: transform 0.3s ease;
+}
+
+.modal-content.show {
+  transform: scale(1);
+}
+
+/* Modal Form Styles */
+.book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.book-form input {
+  width: 100%;
+  padding: 12px;
+  background: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.5rem;
+}
+
+.read-status-container {
+  margin: 15px 0;
+}
+
+.read-button-container {
+  justify-content: center;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.read-button {
+  justify-content: center;
+  flex: 1;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+/* Delete Modal Buttons */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.delete-button {
+  background-color: transparent;
+  border: 1px solid var(--primary-text);
+  color: var(--primary-text);
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100px;
+}
+
+.delete-button:hover {
+  background-color: var(--hover-bg);
+}
+
+/* Toast */
+.toast {
+  visibility: hidden;
+  min-width: 250px;
+  background-color: #333;
+  color: var(--primary-text);
+  text-align: center;
+  border-radius: 10px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  right: 20px;
+  bottom: 30px;
+  font-size: 17px;
+  transition: visibility 0s, opacity 0.5s linear, transform 0.5s ease;
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+}
+
+.footer a {
+  color: var(--primary-text);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  transform: translateY(-4px);
+}
+
+.footer a i {
+  font-size: 2.5rem;
+  margin-left: 0.5rem;
+  transition: transform 0.2s;
+}
+
+.footer a:hover i {
+  transform: scale(1.5) rotate(360deg);
+}
